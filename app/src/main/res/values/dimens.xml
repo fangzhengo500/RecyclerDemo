@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 规范5种常用字体大小 -->
+    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_big">18sp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_min">12sp</dimen>
+
+    <dimen name="video_player_control_layout_vertical_padding">10dp</dimen>
+    <dimen name="video_player_control_layout_horizontal_padding">20dp</dimen>
+    <dimen name="video_player_control_layout_btn_size">30dp</dimen>
+    <dimen name="video_player_control_layout_btn_padding">5dp</dimen>
+    <dimen name="player_btn_size">36dp</dimen>
+    <dimen name="player_btn_margin">16dp</dimen>
+    <dimen name="player_toolbar_height">48dp</dimen>
+    <dimen name="player_toolbar_btn_size">30dp</dimen>
+    <dimen name="player_toolbar_btn_margin">5dp</dimen>
+    <dimen name="player_toolbar_btn_padding">8dp</dimen>
+    <dimen name="player_toolbar_portrait_size">32dp</dimen>
+</resources>

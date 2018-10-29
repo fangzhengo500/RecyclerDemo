@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- 规范常用的 文字颜色 -->
+    <color name="text_color_white">#BBFFFFFF</color>
+    <color name="text_color_gray">#FF999999</color>
+    <color name="text_color_black">#FF555555</color>
+
+    <!-- 默认水波纹效果颜色 -->
+    <color name="ripple_color">#B3FFFFFF</color>
+</resources>
