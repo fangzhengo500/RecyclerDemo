@@ -20,6 +20,7 @@
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".DouYinActivity" />
         <activity android:name=".CustomerLayoutManagerActivity" />
+        <activity android:name=".CoverFlowActivity" />
     </application>
 
 </manifest>
