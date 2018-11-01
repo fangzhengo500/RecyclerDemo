@@ -18,4 +18,5 @@
     <dimen name="player_toolbar_btn_margin">5dp</dimen>
     <dimen name="player_toolbar_btn_padding">8dp</dimen>
     <dimen name="player_toolbar_portrait_size">32dp</dimen>
+    <dimen name="size_8">8dp</dimen>
 </resources>

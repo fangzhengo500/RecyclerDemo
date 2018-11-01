@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_layout_manager:
                 jump2Activity(CustomerLayoutManagerActivity.class);
                 break;
+            case R.id.btn_cover_flow:
+                jump2Activity(CoverFlowActivity.class);
+                break;
         }
     }
 

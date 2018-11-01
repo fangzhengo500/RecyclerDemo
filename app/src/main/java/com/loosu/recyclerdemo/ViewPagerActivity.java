@@ -1,12 +1,18 @@
 package com.loosu.recyclerdemo;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.loosu.recyclerdemo.adapter.base.recyclerview.ARecyclerAdapter;
 import com.loosu.recyclerdemo.adapter.base.recyclerview.RecyclerHolder;
 import com.loosu.recyclerdemo.utils.ResouceUtil;
@@ -46,7 +52,11 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         @Override
         protected void onBindViewData(RecyclerHolder holder, int position, List<Integer> datas) {
-            holder.setImageResource(R.id.iv_image, getItem(position));
+            //holder.setImageResource(R.id.iv_image, getItem(position));
+            ImageView imageView = holder.getView(R.id.iv_image);
+            Glide.with(imageView)
+                    .load(getItem(position))
+                    .into(imageView);
         }
 
         @Override

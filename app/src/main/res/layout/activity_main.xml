@@ -24,4 +24,11 @@
         style="@style/DefaultBtnStyle"
         android:onClick="onClick"
         android:text="LayoutManager" />
+
+    <Button
+        android:id="@+id/btn_cover_flow"
+        android:onClick="onClick"
+        style="@style/DefaultBtnStyle"
+        android:text="Cover Flow" />
+
 </LinearLayout>
