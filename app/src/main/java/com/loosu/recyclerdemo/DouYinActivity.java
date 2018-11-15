@@ -12,10 +12,12 @@ import com.loosu.recyclerdemo.adapter.base.recyclerview.ARecyclerAdapter;
 import com.loosu.recyclerdemo.adapter.base.recyclerview.RecyclerHolder;
 import com.loosu.recyclerdemo.utils.ResouceUtil;
 import com.loosu.recyclerdemo.widget.myplayer.MyPlayer;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.List;
 
 public class DouYinActivity extends AppCompatActivity {
+    private SmartRefreshLayout mRefreshLayout;
     private RecyclerView mViewList;
     private LinearLayoutManager mLayoutManager;
 
@@ -28,6 +30,7 @@ public class DouYinActivity extends AppCompatActivity {
     }
 
     private void findView(Bundle savedInstanceState) {
+        mRefreshLayout = (SmartRefreshLayout) findViewById(R.id.refresh_layout);
         mViewList = (RecyclerView) findViewById(R.id.view_list);
     }
 
@@ -37,6 +40,7 @@ public class DouYinActivity extends AppCompatActivity {
         mViewList.setAdapter(new Adapter());
         PagerSnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(mViewList);
+        mRefreshLayout.setEnableRefresh(false);
     }
 
 

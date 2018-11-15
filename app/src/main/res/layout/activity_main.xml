@@ -31,4 +31,9 @@
         style="@style/DefaultBtnStyle"
         android:text="Cover Flow" />
 
+    <Button
+        android:id="@+id/btn_show_dialog"
+        android:onClick="onClick"
+        style="@style/DefaultBtnStyle"
+        android:text="Dialog" />
 </LinearLayout>
