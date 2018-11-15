@@ -1,16 +1,20 @@
 package com.loosu.recyclerdemo;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.loosu.recyclerdemo.adapter.base.recyclerview.ARecyclerAdapter;
 import com.loosu.recyclerdemo.adapter.base.recyclerview.RecyclerHolder;
+import com.loosu.recyclerdemo.layoutmanager.CoverFlowLayoutManager;
 import com.loosu.recyclerdemo.utils.ResouceUtil;
 
 import java.util.List;
+import java.util.Random;
 
 public class CustomerLayoutManagerActivity extends AppCompatActivity {
 
@@ -29,7 +33,7 @@ public class CustomerLayoutManagerActivity extends AppCompatActivity {
         mViewList.setAdapter(new Adapter());
 
         //mViewList.setLayoutManager(new LinearLayoutManager(this));
-        mViewList.setLayoutManager(new LayoutManager());
+        mViewList.setLayoutManager(new CoverFlowLayoutManager());
     }
 
     private static class Adapter extends ARecyclerAdapter<Integer> {
@@ -40,7 +44,14 @@ public class CustomerLayoutManagerActivity extends AppCompatActivity {
 
         @Override
         protected void onBindViewData(RecyclerHolder holder, int position, List<Integer> datas) {
-            holder.setImageResource(R.id.iv_image, getItem(position));
+            //holder.setImageResource(R.id.iv_image, getItem(position));
+            Random random = new Random();
+            CardView cardView = holder.getView(R.id.card_view);
+            cardView.setCardBackgroundColor(Color.rgb(
+                    random.nextInt(255),
+                    random.nextInt(255),
+                    random.nextInt(255)
+            ));
         }
 
         @Override
@@ -55,7 +66,7 @@ public class CustomerLayoutManagerActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return 2;
+            return 4;
         }
     }
 
