@@ -11,6 +11,8 @@ import android.view.View;
 import com.loosu.recyclerdemo.adapter.base.recyclerview.ARecyclerAdapter;
 import com.loosu.recyclerdemo.adapter.base.recyclerview.RecyclerHolder;
 import com.loosu.recyclerdemo.layoutmanager.CoverFlowLayoutManager;
+import com.loosu.recyclerdemo.layoutmanager.RickRightLayoutManager;
+import com.loosu.recyclerdemo.layoutmanager.TopLayoutManager;
 import com.loosu.recyclerdemo.utils.ResouceUtil;
 
 import java.util.List;
@@ -33,7 +35,7 @@ public class CustomerLayoutManagerActivity extends AppCompatActivity {
         mViewList.setAdapter(new Adapter());
 
         //mViewList.setLayoutManager(new LinearLayoutManager(this));
-        mViewList.setLayoutManager(new CoverFlowLayoutManager());
+        mViewList.setLayoutManager(new TopLayoutManager());
     }
 
     private static class Adapter extends ARecyclerAdapter<Integer> {
@@ -47,11 +49,8 @@ public class CustomerLayoutManagerActivity extends AppCompatActivity {
             //holder.setImageResource(R.id.iv_image, getItem(position));
             Random random = new Random();
             CardView cardView = holder.getView(R.id.card_view);
-            cardView.setCardBackgroundColor(Color.rgb(
-                    random.nextInt(255),
-                    random.nextInt(255),
-                    random.nextInt(255)
-            ));
+            cardView.setCardBackgroundColor(Color.rgb(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
+            holder.setText(R.id.tv_text, String.valueOf(position));
         }
 
         @Override
@@ -66,7 +65,7 @@ public class CustomerLayoutManagerActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return 4;
+            return 10;
         }
     }
 
