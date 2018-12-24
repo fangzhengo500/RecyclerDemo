@@ -74,10 +74,17 @@ public class TopLayoutManager extends RecyclerView.LayoutManager {
 
     @Override
     public void scrollToPosition(int position) {
-        super.scrollToPosition(position);
+        if (position < 0 || position >= getItemCount()) {
+            return;
+        }
+        mOffset = position * getHeight();
+        requestLayout();
     }
 
     public int findCurrentPosition() {
+        if (getHeight() == 0) {
+            return RecyclerView.NO_POSITION;
+        }
         int position = mOffset / getHeight();
         if (position < 0 || position >= getItemCount()) {
             return RecyclerView.NO_POSITION;

@@ -8,4 +8,21 @@
         android:id="@+id/view_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_scroll_to_position"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+        <Button
+            android:id="@+id/btn_scroll_to_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To Pos" />
+    </LinearLayout>
 </FrameLayout>
