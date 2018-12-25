@@ -1,11 +1,15 @@
 package com.loosu.recyclerdemo.layoutmanager;
 
+import android.graphics.PointF;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.loosu.recyclerdemo.utils.KLog;
 
-public class TopLayoutManager extends RecyclerView.LayoutManager {
-    private static final String TAG = "TopLayoutManager";
+
+public class TopGravityLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
+    private static final String TAG = "TopGravityLayoutManager";
 
     private int mOffset = 0;
 
@@ -81,6 +85,12 @@ public class TopLayoutManager extends RecyclerView.LayoutManager {
         requestLayout();
     }
 
+    @Override
+    public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
+        KLog.d(TAG, "position = " + position);
+    }
+
+
     public int findCurrentPosition() {
         if (getHeight() == 0) {
             return RecyclerView.NO_POSITION;
@@ -90,6 +100,17 @@ public class TopLayoutManager extends RecyclerView.LayoutManager {
             return RecyclerView.NO_POSITION;
         }
         return position;
+    }
+    public int findPrePosition() {
+        int currentPosition = findCurrentPosition();
+        if (currentPosition == RecyclerView.NO_POSITION) {
+            return RecyclerView.NO_POSITION;
+        }
+        int prePosition = currentPosition - 1;
+        if (prePosition < 0 || prePosition >= getItemCount()) {
+            return RecyclerView.NO_POSITION;
+        }
+        return prePosition;
     }
 
     public int findNextPosition() {
@@ -102,5 +123,11 @@ public class TopLayoutManager extends RecyclerView.LayoutManager {
             return RecyclerView.NO_POSITION;
         }
         return nextPosition;
+    }
+
+    @Nullable
+    @Override
+    public PointF computeScrollVectorForPosition(int i) {
+        return null;
     }
 }

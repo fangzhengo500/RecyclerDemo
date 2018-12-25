@@ -2,24 +2,26 @@ package com.loosu.recyclerdemo;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 
 import com.loosu.recyclerdemo.adapter.base.recyclerview.ARecyclerAdapter;
 import com.loosu.recyclerdemo.adapter.base.recyclerview.RecyclerHolder;
-import com.loosu.recyclerdemo.layoutmanager.TopLayoutManager;
-import com.loosu.recyclerdemo.layoutmanager.TopSnapHelper;
+import com.loosu.recyclerdemo.layoutmanager.TopGravityLayoutManager;
+import com.loosu.recyclerdemo.layoutmanager.TopGravitySnapHelper;
+import com.loosu.recyclerdemo.utils.KLog;
 import com.loosu.recyclerdemo.utils.ResouceUtil;
 
 import java.util.List;
 import java.util.Random;
 
 public class CustomerLayoutManagerActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = "CustomerLayoutManagerAc";
 
     private RecyclerView mViewList;
 
@@ -44,13 +46,14 @@ public class CustomerLayoutManagerActivity extends AppCompatActivity implements 
     }
 
     private void initView(Bundle savedInstanceState) {
-        mViewList.setLayoutManager(new TopLayoutManager());
-        TopSnapHelper snapHelper = new TopSnapHelper();
+        mViewList.setLayoutManager(new TopGravityLayoutManager());
+        TopGravitySnapHelper snapHelper = new TopGravitySnapHelper();
         snapHelper.attachToRecyclerView(mViewList);
     }
 
     private void initListener(Bundle savedInstanceState) {
         mBtnScrollToPosition.setOnClickListener(this);
+        mViewList.addOnScrollListener(mScrollListener);
     }
 
     @Override
@@ -71,6 +74,18 @@ public class CustomerLayoutManagerActivity extends AppCompatActivity implements 
         }
         mViewList.scrollToPosition(position);
     }
+
+    private RecyclerView.OnScrollListener mScrollListener = new RecyclerView.OnScrollListener() {
+        @Override
+        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+            KLog.i(TAG, "newState = " + newState);
+        }
+
+        @Override
+        public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+            KLog.d(TAG, "dx = " + dx + ", dy = " + dy);
+        }
+    };
 
     private static class Adapter extends ARecyclerAdapter<Integer> {
 
